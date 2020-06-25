@@ -11,7 +11,7 @@ test_negative/negative.py:44: error: Argument 1 to "HasField" of "SimpleProto3" 
 test_negative/negative.py:45: error: Argument 1 to "HasField" of "SimpleProto3" has incompatible type "Literal[u'outer_enum']"; expected <union: 24 items>
 test_negative/negative.py:46: error: Argument 1 to "HasField" of "SimpleProto3" has incompatible type "Literal[u'a_repeated_string']"; expected <union: 24 items>
 test_negative/negative.py:49: error: Argument 1 to "ClearField" of "Simple1" has incompatible type "Literal['garbage']"; expected <union: 42 items>
-test_negative/negative.py:52: error: Argument 1 to "ClearField" of "SimpleProto3" has incompatible type "Literal['garbage']"; expected <union: 36 items>
+test_negative/negative.py:52: error: Argument 1 to "ClearField" of "SimpleProto3" has incompatible type "Literal['garbage']"; expected <union: 38 items>
 test_negative/negative.py:55: error: Argument 1 to "WhichOneof" of "Simple1" has incompatible type "Literal['garbage']"; expected "Union[Literal[u'a_oneof'], Literal['a_oneof']]"
 test_negative/negative.py:57: error: Incompatible types in assignment (expression has type "Union[Literal[u'a_oneof_1'], Literal[u'a_oneof_2'], Literal[u'outer_message_in_oneof'], Literal[u'outer_enum_in_oneof'], Literal[u'inner_enum_in_oneof']]", variable has type "int")
 test_negative/negative.py:61: error: Argument 1 to "HasField" of "Simple2" has incompatible type "Union[Literal[u'a_oneof_1'], Literal[u'a_oneof_2'], Literal[u'outer_message_in_oneof'], Literal[u'outer_enum_in_oneof'], Literal[u'inner_enum_in_oneof']]"; expected "Union[Literal[u'a_string'], Literal['a_string']]"
@@ -31,4 +31,16 @@ test_negative/negative.py:94: error: Argument 1 to "Name" of "_EnumTypeWrapper" 
 test_negative/negative.py:96: error: Argument 1 to "Name" of "_EnumTypeWrapper" has incompatible type "InnerEnumValue"; expected "OuterEnumValue"
 test_negative/negative.py:98: error: Argument 1 to "Name" of "_EnumTypeWrapper" has incompatible type "InnerEnumValue"; expected "OuterEnumValue"
 test_negative/negative.py:100: error: Argument 1 to "Name" of "_EnumTypeWrapper" has incompatible type "InnerEnumValue"; expected "OuterEnumValue"
-Found 30 errors in 1 file (checked 3 source files)
+test_negative/negative.py:104: error: "ScalarMap[int, unicode]" has no attribute "get_or_create"
+test_negative/negative.py:106: error: "ScalarMap[int, unicode]" has no attribute "get_or_create"
+test_negative/negative.py:107: error: No overload variant of "get" of "Mapping" matches argument type "str"
+test_negative/negative.py:107: note: Possible overload variant:
+test_negative/negative.py:107: note:     def get(self, k: int) -> Optional[unicode]
+test_negative/negative.py:107: note:     <1 more non-matching overload not shown>
+test_negative/negative.py:108: error: No overload variant of "get" of "Mapping" matches argument type "str"
+test_negative/negative.py:108: note: Possible overload variant:
+test_negative/negative.py:108: note:     def get(self, k: int) -> Optional[OuterMessage3]
+test_negative/negative.py:108: note:     <1 more non-matching overload not shown>
+test_negative/negative.py:111: error: Incompatible types in assignment (expression has type "Optional[unicode]", variable has type "int")
+test_negative/negative.py:112: error: Incompatible types in assignment (expression has type "Optional[OuterMessage3]", variable has type "int")
+Found 36 errors in 1 file (checked 3 source files)

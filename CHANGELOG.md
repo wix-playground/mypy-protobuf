@@ -1,5 +1,24 @@
 ## Upcoming
 
+- Support ScalarMap and MessageMap generated types for map types in proto.
+This will allow us to support `get_or_create`
+
+```
+message Message {
+    map<int32, OuterMessage3> map_message = 17
+}
+```
+and
+```
+message.map_message.get_or_create(0)
+```
+
+Before (1.23)
+```
+main.py:4: error: "MutableMapping[str, Nested]" has no attribute "get_or_create"  [attr-defined]
+```
+After (1.24) - there is no error
+
 ## 1.23
 
 - Inherit FromString from superclass Message - rather than re-generating here. Fixes bug
