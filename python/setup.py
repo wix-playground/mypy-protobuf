@@ -1,8 +1,12 @@
 from setuptools import setup
 
+PACKAGE_NAME = "mypy-protobuf"
+PACKAGE_VERSION = "1.23.0"
+
+
 setup(
     name="mypy-protobuf",
-    version="1.23+grpc.wix",
+    version=f"{PACKAGE_VERSION}+grpc.wix",
     description="Generate mypy stub files from protobuf specs",
     keywords="mypy proto dropbox",
     license="Apache License 2.0",
