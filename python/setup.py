@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="mypy-protobuf",
-    version="1.23",
+    version="1.23+grpc.wix",
     description="Generate mypy stub files from protobuf specs",
     keywords="mypy proto dropbox",
     license="Apache License 2.0",
