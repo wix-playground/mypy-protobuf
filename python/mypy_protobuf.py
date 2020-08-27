@@ -6,6 +6,7 @@ import sys
 from collections import defaultdict
 from contextlib import contextmanager
 from functools import wraps
+from pathlib import Path
 
 import google.protobuf.descriptor_pb2 as d
 import six
@@ -547,9 +548,10 @@ class PkgWriter(object):
     def write_grpc_services(self, services):
         # type: (Iterable[d.ServiceDescriptorProto]) -> None
         l = self._write_line
+        module_base_name = Path(self.fd.name).stem
         l(
             "from .{} import *",
-            self.fd.name.rsplit('/', 1)[1][:-6].replace("-", "_") + "_pb2",
+            module_base_name + "_pb2",
         )
 
         for service in [s for s in services if s.name not in PYTHON_RESERVED]:
