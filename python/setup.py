@@ -6,7 +6,7 @@ PACKAGE_VERSION = "1.23.0"
 
 setup(
     name="mypy-protobuf",
-    version=f"{PACKAGE_VERSION}+grpc.wix",
+    version="{}+grpc.wix".format(PACKAGE_VERSION),
     description="Generate mypy stub files from protobuf specs",
     keywords="mypy proto dropbox",
     license="Apache License 2.0",
