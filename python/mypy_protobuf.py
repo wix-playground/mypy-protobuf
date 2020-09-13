@@ -548,7 +548,7 @@ class PkgWriter(object):
     def write_grpc_services(self, services):
         # type: (Iterable[d.ServiceDescriptorProto]) -> None
         l = self._write_line
-        module_base_name = Path(self.fd.name).stem
+        module_base_name = Path(self.fd.name).stem.replace("-", "_")
         l(
             "from .{} import *",
             module_base_name + "_pb2",
